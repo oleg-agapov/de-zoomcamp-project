@@ -1,18 +1,15 @@
-/data
-/github_raw_data
-local.db
-test.db
-
-
 # python
 .ipynb_checkpoints/
 venv
+.venv
 __pycache__/
 
 
 # secrets
 .env
 gcp.json
+.google/*.json
+.google/*.p12
 
 
 # Terraform dot files
@@ -39,3 +36,4 @@ logs/
 
 # misc
 .DS_Store
+/data

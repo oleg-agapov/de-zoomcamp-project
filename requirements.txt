@@ -1,0 +1,6 @@
+pandas
+notebook
+prefect-gcp[cloud_storage]
+python-dotenv
+google-cloud-bigquery
+dbt-bigquery
