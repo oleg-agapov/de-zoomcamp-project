@@ -11,14 +11,20 @@ dev:
 
 prefect-build:
 	@docker image build \
-		--build-arg prefect_api_key="${PREFECT_API_KEY}" \
-		--build-arg prefect_api_url="${PREFECT_API_URL}" \
 		-t de-zoomcamp/prefect:latest \
 		./prefect
 
 prefect-agent:
-	@docker run --entrypoint prefect \
+	@docker run \
+		-e PREFECT_API_KEY="${PREFECT_API_KEY}" \
+		-e PREFECT_API_URL="${PREFECT_API_URL}" \
+		--entrypoint prefect \
 		de-zoomcamp/prefect:latest \
 		agent start \
 		--pool default-agent-pool \
 		--work-queue default
+
+prefect-blocks:
+	python prefect/blocks/gcp.py
+	python prefect/blocks/github.py
+	@#python prefect/blocks/cloud_run.py
