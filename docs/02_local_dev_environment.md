@@ -36,6 +36,7 @@ Make sure that you have the following apps installed and working.
     
     ```bash
     gcloud init
+    gcloud config set run/region europe-west6
     ```
 
 ### Terraform
