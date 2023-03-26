@@ -20,3 +20,7 @@
     GITHUB_REPOSITORY=<URL-of-your-repository>
     GCS_BUCKET_NAME=de-zoomcamp-2023-project-v2-datalake
     ```
+
+## Additional services
+
+- Enable [Compute Engine](https://console.cloud.google.com/marketplace/product/google/compute.googleapis.com) API
