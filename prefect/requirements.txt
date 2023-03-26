@@ -1,0 +1,2 @@
+prefect-gcp[cloud_storage]
+python-dotenv
