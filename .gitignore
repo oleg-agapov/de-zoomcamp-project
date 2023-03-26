@@ -1,0 +1,41 @@
+/data
+/github_raw_data
+local.db
+test.db
+
+
+# python
+.ipynb_checkpoints/
+venv
+__pycache__/
+
+
+# secrets
+.env
+gcp.json
+
+
+# Terraform dot files
+.terraform
+.terraformrc
+**/.terraform/*
+.terraform.d
+*.tfstate
+*.tfstate.*
+terraform.rc
+terraform.tfvars
+terraform.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+.terraform.lock.hcl
+
+
+# dbt
+target/
+dbt_packages/
+logs/
+.user.yml
+
+
+# misc
+.DS_Store
