@@ -16,5 +16,7 @@
     ```
     GCP_PROJECT_ID=de-zoomcamp-2023-project-v2
     GCP_REGION=europe-west6
-    GOOGLE_APPLICATION_CREDENTIALS=./google/terraform-service-account.json
+    GOOGLE_APPLICATION_CREDENTIALS=.google/terraform-service-account.json
+    GITHUB_REPOSITORY=<URL-of-your-repository>
+    GCS_BUCKET_NAME=de-zoomcamp-2023-project-v2-datalake
     ```
