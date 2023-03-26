@@ -1,5 +1,7 @@
 # Terraform setup
 
+1. Navigate to `/terraform` folder, open `variables.tf` file and put your values for project_id, region and full path (!) to the service account file
+
 1. From inside the `/terraform` folder execute the following commands:
 
     ```bash
