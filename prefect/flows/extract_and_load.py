@@ -41,13 +41,14 @@ def get_next_datetime() -> tuple:
             next_datetime.hour,
         )
     
-    blobs = gcs.list_blobs(folders[-1])
-    blobs = sorted([x.name for x in blobs])
+    all_blobs = gcs.list_blobs(folders[-1])
+    blobs = [int(x.name.split('/')[-1].split('.')[0].split('-')[-1]) for x in all_blobs]
 
-    last_file_name = blobs[-1].split('/')[-1].split('.')[0]
-    year, month, day, hour = [int(x) for x in last_file_name.split('-')]
+    last_available_hour = max(blobs)
+    last_available_date = folders[-1].split('=')[-1]
+    year, month, day = [int(x) for x in last_available_date.split('-')]
 
-    last_datetime = datetime.datetime(year, month, day, hour)
+    last_datetime = datetime.datetime(year, month, day, last_available_hour)
     next_datetime = last_datetime + datetime.timedelta(hours=1)
     
     return (
