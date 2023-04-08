@@ -1,0 +1,16 @@
+type,category,description
+PushEvent,Commit,One or more commits are pushed to a repository branch or tag
+CommitCommentEvent,Comment,A commit comment is created
+CreateEvent,Branch,A Git branch or tag is created
+DeleteEvent,Branch,A Git branch or tag is deleted
+WatchEvent,Star,When someone stars a repository
+ForkEvent,Fork,A user forks a repository
+ReleaseEvent,Release,Activity related to a release
+PullRequestEvent,Pull Request,Activity related to pull requests
+PullRequestReviewEvent,Pull Request,Activity related to pull request reviews
+PullRequestReviewCommentEvent,Comment,Activity related to pull request review comments in the pull request's unified diff
+IssuesEvent,Issue,Activity related to an issue
+IssueCommentEvent,Comment,Activity related to an issue or pull request comment
+PublicEvent,Repo went public,When a private repository is made public
+MemberEvent,Member,Activity related to repository collaborators
+GollumEvent,Documentation,A wiki page is created or updated

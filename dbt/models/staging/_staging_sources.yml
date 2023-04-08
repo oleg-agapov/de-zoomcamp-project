@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: de-zoomcamp-2023-project-v2
+    loader: gcloud storage
+  
+    tables:
+      - name: external_github_events
+        description: "External table of Github events, stored as JSON files in Cloud Storage"
+        external:
+          location: 'gs://de-zoomcamp-2023-project-v2-datalake/github/raw_data/*'
+          options:
+            format: JSON
+            hive_partition_uri_prefix: 'gs://de-zoomcamp-2023-project-v2-datalake/github/raw_data'
+          partitions:
+            - name: year
+              data_type: integer
+            - name: month
+              data_type: string
+            - name: date
+              data_type: date
+        
+        columns:
+          
+          - name: id
+            data_type: string
+            description: Unique identifier of the event
+          - name: type
+            data_type: string
+            description: Name of the event
+          - name: created_at
+            data_type: timestamp
+            description: Date of event_creation
+          - name: actor
+            data_type: json
+            description: Author of the event (e.g. commit, comment), user of Github
+          - name: org
+            data_type: json
+            description: Organization onfo (if the repository belongs to a Github organization)
+          - name: payload
+            data_type: json
+            description: Payload of the event
+          - name: public
+            data_type: boolean
+            description: Flag is the repository public or not
+          - name: repo
+            data_type: json
+            description: Repository information
