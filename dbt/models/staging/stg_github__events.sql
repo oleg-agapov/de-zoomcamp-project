@@ -1,6 +1,8 @@
 {{
     config(
         materialized = "incremental",
+        incremental_strategy = "insert_overwrite",
+        unique_key = "event_id",
         partition_by = {
             "field": "created_at",
             "data_type": "timestamp",
@@ -55,7 +57,6 @@ from
 {{ source('raw_data', 'external_github_events') }}
 
 {% if is_incremental() %}
--- where timestamp(`date`) in ({{ ['2023-01-01'] | join(',') }})
 where timestamp(`date`) >= timestamp('{{ prev_event_date }}')
 {% endif %}
 
