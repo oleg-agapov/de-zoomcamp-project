@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_repositories
+    description: |
+      Dictionary with repositories ID and names. 
+      
+      Pay attention that ID is not a unique identifier here because the name of the repository can change, but ID will stay the same.
+    
+    columns:
+      - name: repo_id
+        description: ID of the repository. Non-unique for this table.
+        tests:
+          - not_null
+	    - name: repo_name
+        description: Name of the repository in the format <account_name>/<repo_name>
+        tests:
+          - not_null
+      - name: load_time
+        description: Time when the record was created or updated
+  
+  - name: fact_repo_daily_events
+    description: |
+      Aggregated daily statistics about each repository.
+
+      The table is updated hourly.
+
+    columns:
+      - name: event_date
+        description: Report date
+	    - name: repo_id
+        description: ID of the repository
+	    - name: repo_name
+        description: Name of the repository
+	    - name: event_type
+        description: |
+          Type of the event occured. 
+          
+          Full list of the events with the description you can find on the [official page](https://docs.github.com/en/webhooks-and-events/events/github-event-types)
+	    - name: payload_action
+        description: The action performed. Depends on the event type.
+      - name: event_category
+        description: Mapped category of the event. Based on the seed file `event_types.csv`
+      - name: description
+        description: Description of the event category
+	    - name: events
+        description: Number of events of that kind occured on the report date
