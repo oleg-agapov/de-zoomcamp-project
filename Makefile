@@ -9,6 +9,10 @@ dev:
 	pip install -r requirements.txt
 
 
+prefect-login:
+	prefect cloud login -k ${PREFECT_API_KEY}
+
+
 prefect-build:
 	docker build \
 		--platform linux/amd64 \
@@ -28,7 +32,6 @@ prefect-agent:
 prefect-blocks:
 	python prefect/blocks/gcp.py
 	python prefect/blocks/github.py
-	@#python prefect/blocks/cloud_run.py
 
 prefect-vm:
 	gcloud compute instances create-with-container vm-prefect-agent \
