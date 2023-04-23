@@ -2,7 +2,7 @@
 
 ## Project description
 
-![](./docs/dashboard.png)
+![](./docs/img/dashboard.png)
 
 The project is an end-to-end data engineering pipeline that takes GitHub archive data, loads it to cloud storage, uploads it to a data warehouse, transforms it with dbt, and visualizes it using Looker Studio.
 
@@ -35,7 +35,7 @@ Looker Studio is free and comes with a Google account.
 
 ### Data pipeline overview
 
-![](./docs/project-structure.png)
+![](./docs/img/project-structure.png)
 
 ### Data ingestion
 
@@ -46,7 +46,7 @@ The data is ingested in a **batch manner**. The pipeline is made out of two comp
 
 The source data is updated every hour, so the script is also triggered every hour to upload the new batch.
 
-![](./docs/prefect-cloud.png)
+![](./docs/img/prefect-cloud.png)
 
 To simplify VM management I made a custom container with Prefect dependencies and create a VM using this container. This makes it easy to manage (spin-up or shutdown the VM with one command) and easy to add new dependencies (e.g. new Python packages) as needed.
 
@@ -62,7 +62,7 @@ Partitioning is made using `event_date` column and allows you to process less da
 
 Data transformation is done using **dbt**. Here I'm using dbt Cloud version as it is free for one developer and one project.
 
-![](./docs/dbt-graph.png)
+![](./docs/img/dbt-graph.png)
 
 Basically, dbt manages the warehouse completely:
 - *external tables* are made in dbt using `dbt_external_tables` package
