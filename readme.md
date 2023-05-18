@@ -89,3 +89,7 @@ The dashboard is connected to the BigQuery production schema.
 # Reproducing the project
 
 To reproduce this project for yourself got to the [instructions page](./docs/readme.md).
+
+# Certificate
+
+[Direct link](https://certificate.datatalks.club/dezoomcamp/2023/64c481e0d59543a722642f948526f7cdc3f2acab.pdf).
